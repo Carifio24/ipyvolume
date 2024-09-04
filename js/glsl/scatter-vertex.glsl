@@ -43,7 +43,7 @@ varying vec2 vertex_uv;
     attribute float y_next;
     attribute float y_previous;
     attribute float z_next;
-    attribute float z_previous;
+attribute float z_previous;
 #ifdef USE_AUX
     attribute float aux_next;
     attribute float aux_previous;
@@ -225,7 +225,7 @@ void main(void) {
     #ifdef USE_SPRITE
         // if we are a sprite, we add the position in view coordinates, and need to
         vec4 view_pos = modelViewMatrix * vec4(model_pos, 1.0);
-        view_pos += vec4((position.xy)*(s*0.5),0,0);
+        view_pos += vec4((position.xy)*(size_current*0.5),0,0);
     #else
         // the position is the orignal mesh position, so we scale and add that to the central location
         // and we also rotate it into the direction of the vector v
